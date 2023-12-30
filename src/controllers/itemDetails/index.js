@@ -41,6 +41,9 @@ import 'elements/emby-select/emby-select';
 
 import 'styles/scrollstyles.scss';
 
+import React, { StrictMode } from 'react';
+import { createRoot } from 'react-dom';
+
 function autoFocus(container) {
     import('../../components/autoFocuser').then(({ default: autoFocuser }) => {
         autoFocuser.autoFocus(container);
@@ -1066,6 +1069,7 @@ function renderDetails(page, item, apiClient, context) {
 
     renderTags(page, item);
     renderSeriesAirTime(page, item);
+    // renderPhotos(page, item);
 }
 
 function enableScrollX() {
@@ -1791,6 +1795,46 @@ function renderCast(page, item) {
             imageBlurhashes: item.ImageBlurHashes
         });
     });
+}
+
+function renderPhotos(page, item) {
+    console.log('PPPPPPPPPPP',page,item);
+
+    const {id} = item
+    
+    page.querySelector('#iJellyfin-photos').classList.remove('hide');
+    const castContent = page.querySelector('#iJellyfin-photos');
+
+    castContent.innerHTML = 'fk'
+
+
+    function MyButton() {
+    return (
+        <button>
+        I'm a button
+        </button>
+    );
+    }
+
+    let App = function MyApp() {
+    return (
+        <div>
+        <h1>Welcome to my app</h1>
+        <MyButton />
+        </div>
+    );
+    }
+
+
+    const root = createRoot(document.getElementById('root'));
+    root.render(
+    <StrictMode>
+        <App />
+    </StrictMode>
+    );
+  
+
+    
 }
 
 function renderGuestCast(page, item) {

@@ -5,6 +5,7 @@ import AppBody from 'components/AppBody';
 import { DASHBOARD_APP_PATHS } from 'apps/dashboard/routes/routes';
 import Backdrop from 'components/Backdrop';
 import AppHeader from 'components/AppHeader';
+import NickJellyfin from './NickJellyfin'
 
 export default function AppLayout() {
     const location = useLocation();
@@ -15,9 +16,10 @@ export default function AppLayout() {
         <>
             <Backdrop />
             <AppHeader isHidden={isNewLayoutPath} />
-
+            <NickJellyfin />
             <AppBody>
                 <Outlet />
+                
             </AppBody>
         </>
     );
